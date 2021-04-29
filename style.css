@@ -56,7 +56,7 @@ body {
   border: 0px;
   cursor: pointer;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.22);
-  background: linear-gradient(175deg, #FF79DA, #9356DC);
+  background: linear-gradient(179deg, #FF79DA, #9356DC);
   position: relative;
   z-index: 1;
 }
@@ -72,7 +72,7 @@ body {
   left: 0;
   border-radius: 2rem;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.325);
-  background: linear-gradient(#ff88de, #9b63df);
+  background: linear-gradient(179deg, #ff88de, #9b63df);
   opacity: 0;
   z-index: -1;
   transition: opacity 200ms;
@@ -86,6 +86,10 @@ section {
   padding: 1rem 1rem 3rem 1rem;
 }
 
+.howTo__h2 {
+  padding: 1rem 0 1rem 0;
+  margin: 0;
+}
 .howTo__stepsWrap {
   display: flex;
   flex-direction: column;
@@ -163,6 +167,10 @@ section {
 .restaurants {
   background-color: #f4f4f4;
 }
+.restaurants__h2 {
+  padding: 1rem 0 1rem 0;
+  margin: 0;
+}
 
 .new::before {
   content: "Nouveau";
@@ -181,13 +189,6 @@ section {
   width: 5rem;
 }
 
-@media screen and (min-width: 660px) {
-  .restaurants__itemWrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 2rem;
-  }
-}
 .item {
   position: relative;
   text-decoration: none;
@@ -224,7 +225,7 @@ section {
 .footer__title {
   font-family: "Shrikhand", cursive;
   font-weight: 400;
-  margin: 0 0 1rem 0;
+  padding: 0 0 1rem 0;
 }
 .footer__wrap {
   display: flex;
@@ -258,8 +259,14 @@ section {
 .footer li {
   margin: 0.4rem 0 0.4rem 0;
 }
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 660px) {
+  .footer .footer__title {
+    max-width: 80%;
+    margin: auto;
+  }
   .footer .footer__wrap {
+    max-width: 80%;
+    margin: auto;
     flex-direction: row;
     justify-content: center;
   }
@@ -268,6 +275,57 @@ section {
   }
   .footer .footer__wrap__list {
     width: 50%;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .header__explore__reserve {
+    text-align: start;
+    max-width: 80%;
+    margin: auto;
+  }
+  .header__explore__discover {
+    text-align: start;
+    max-width: 80%;
+    margin: auto;
+  }
+  .header__explore__btn {
+    max-width: 80%;
+    width: 80%;
+    margin: auto;
+  }
+
+  .howTo__h2 {
+    max-width: 80%;
+    margin: auto;
+  }
+  .howTo__stepsWrap {
+    max-width: 80%;
+    margin: auto;
+  }
+  .howTo__stepsWrap__step {
+    width: 97%;
+  }
+
+  .restaurants__h2 {
+    max-width: 80%;
+    margin: auto;
+  }
+  .restaurants__itemWrap {
+    max-width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+}
+@media screen and (min-width: 1320px) {
+  .howTo__stepsWrap {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .howTo__stepsWrap__step {
+    width: 30%;
   }
 }
 
