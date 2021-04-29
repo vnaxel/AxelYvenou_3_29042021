@@ -163,6 +163,7 @@ section {
 .restaurants {
   background-color: #f4f4f4;
 }
+
 .new::before {
   content: "Nouveau";
   position: absolute;
@@ -180,6 +181,13 @@ section {
   width: 5rem;
 }
 
+@media screen and (min-width: 660px) {
+  .restaurants__itemWrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+}
 .item {
   position: relative;
   text-decoration: none;
@@ -190,6 +198,11 @@ section {
   margin: 1rem 0rem 1rem 0rem;
   border-radius: 0.8rem;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.22);
+  transform: scale(1);
+  transition: all 200ms ease;
+}
+.item:hover {
+  transform: scale(1.005);
 }
 .item__img {
   object-fit: cover;
@@ -221,9 +234,6 @@ section {
   display: flex;
   flex-direction: column;
 }
-.footer__wrap__partners__li {
-  padding: 0.3rem 0 0.3rem 0;
-}
 .footer__wrap__partners__li__icon {
   margin: 0 1rem 0 0.15rem;
 }
@@ -236,8 +246,29 @@ section {
   flex-direction: column;
   font-weight: 300;
 }
-.footer__wrap__list__li {
-  padding: 0.3rem 0 0.3rem 0;
+.footer a {
+  text-decoration: none;
+  color: inherit;
+}
+.footer ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.footer li {
+  margin: 0.4rem 0 0.4rem 0;
+}
+@media screen and (min-width: 640px) {
+  .footer .footer__wrap {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .footer .footer__wrap__partners {
+    width: 50%;
+  }
+  .footer .footer__wrap__list {
+    width: 50%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
