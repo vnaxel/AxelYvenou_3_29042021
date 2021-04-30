@@ -252,8 +252,6 @@ section {
     }
 }
 
-
-
 .restaurants {
     background-color: lighten($color-fourthary, 5%);
     &__h2 {
@@ -292,9 +290,9 @@ section {
     border-radius: 0.8rem;
     box-shadow: $box-shadow;
     transform: scale(1);
-    transition: all 200ms ease;
+    transition: 200ms ease;
     &:hover {
-        transform: scale(1.005);
+        transform: scale(1.015);
     }
     &__img {
         object-fit: cover;
@@ -303,13 +301,41 @@ section {
         width: 100%;
     }
     &__footer {
+        margin: 12px;
+        display: flex;
+        justify-content: space-between;
         &__content {
-            margin: 12px;
             &__title {
                 margin: 0;
             }
+            &__heart {
+                margin-top: 0.4rem;
+            }
         }
-        &__heart {} // à faire 
+    }
+}
+
+.heart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    stroke-width: 1px;
+    stroke: black;
+    fill: white;
+    cursor: pointer;
+    &__svg--full {
+        fill: url(#pink-gradient);
+        stroke: none;
+        position: absolute;
+        opacity: 0;
+        transition: all 400ms ease-out;
+    }
+    &:hover {
+        .heart__svg--full {
+            opacity: 1;
+        }
     }
 }
 
