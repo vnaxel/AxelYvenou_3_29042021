@@ -10,36 +10,36 @@ $color-fifthary : darken($color-fourthary, 65%);
 $box-shadow : 3px 3px 10px rgba(0,0,0,0.22);
 
 @mixin btn {
-            border-radius: 2rem;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #fff;
-            padding: 1rem;
-            border: 0px;
-            cursor: pointer;
-            box-shadow: $box-shadow ;
-            background: linear-gradient(179deg, $color-secondary, $color-primary);
-            position: relative;
-            z-index: 1;
-            &:hover {
-                &::after {
-                    opacity: 1;
-                }
-            }
-            &::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                border-radius: 2rem;
-                box-shadow: 3px 3px 10px rgba(0,0,0,0.325) ;
-                background: linear-gradient(179deg, lighten($color-secondary, 3%),lighten($color-primary, 3%));
-                opacity: 0;
-                z-index: -1;
-                transition: opacity 200ms;
-            }
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    padding: 1rem;
+    border: 0px;
+    cursor: pointer;
+    border-radius: 2rem;
+    box-shadow: $box-shadow;
+    background: linear-gradient(179deg, $color-secondary, $color-primary);
+    position: relative;
+    z-index: 1;
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 2rem;
+        box-shadow: 3px 3px 10px rgba(0,0,0,0.325) ;
+        background: linear-gradient(179deg, lighten($color-secondary, 3%),lighten($color-primary, 3%));
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 200ms;
+    }
 }
 
 @mixin footer {
@@ -49,7 +49,8 @@ $box-shadow : 3px 3px 10px rgba(0,0,0,0.22);
     &__title {
             font-family: 'Shrikhand', cursive;
             font-weight: 400;
-            padding: 0 0 1rem 0;
+            padding: 1rem 0 2rem 0;
+            margin: 0;
     }
     &__wrap {
         display: flex;
@@ -72,10 +73,6 @@ $box-shadow : 3px 3px 10px rgba(0,0,0,0.22);
             flex-direction: column;
             font-weight: 300;
         }
-    }
-    & a {
-        text-decoration: none;
-        color: inherit;
     }
     & ul {
         padding: 0;
@@ -112,9 +109,24 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 }
 
 .header {
+    &--menu {
+        position: relative;
+        &__arrow {
+            position: absolute;
+            top: 1.8rem;
+            left: 1.8rem;
+            font-size: 1.5rem;
+            color: $color-fifthary;
+            cursor: pointer;
+        }
+    }
     &__boxLogo {
         display: flex;
         align-items: center;
@@ -123,6 +135,7 @@ body {
             font-family: 'Shrikhand', cursive;
             margin: 1rem 0 0.5rem 0;
         }
+        
     }
     &__pos {
         display: flex;
@@ -158,11 +171,76 @@ body {
         &__btn {
             @include btn;
         }
+        &__line {
+            display: none;
+        }
     }
+}
+
+.banner {
+    max-width: 100%;
+    width: 100%;
+    max-height: 25rem;
+    object-fit: cover;
 }
 
 .main {
     margin: auto;
+}
+
+.menu{
+    background: lighten($color-fourthary, 5%);
+    position: relative;
+    margin-top: -4rem;
+    border-radius: 2rem 2rem 0 0;
+    z-index: 1;
+    position: relative;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem 1rem 1rem 1rem;
+        &__title {
+            margin: 0;
+            font-family: 'Shrikhand', cursive;
+            font-size: 1.7rem;
+            font-weight: 400;
+            padding: 0 0 0 0.3rem;
+        }
+        &__heart {
+            padding-right: 1rem;
+            padding-top: 0.1rem;
+        }
+    }
+    &__wrap {
+        &__subMenu {
+            padding: 0 1rem 0 1rem;
+            &__title {
+                padding: 1rem 0 0 0.3rem;
+                margin: 0 0 1.5rem 0;
+                text-transform: uppercase;
+                font-size: 1rem;
+                font-weight: 400;
+                position: relative;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: -0.5rem;
+                    left: 0.3rem;
+                    height: 3px;
+                    width: 2.5rem;
+                    background-color: $color-tertiary;
+                }
+            }
+            &__item {
+                padding: 1rem;
+                margin: 1rem 0 1rem 0;
+                display: flex;
+                box-shadow: $box-shadow;
+                border-radius: 1.5rem;
+                background-color: white;
+            }
+        }
+    }
 }
 
 section {
@@ -325,6 +403,9 @@ section {
     stroke: black;
     fill: white;
     cursor: pointer;
+    &__svg--menu {
+        fill: $color-fourthary;
+    }
     &__svg--full {
         fill: url(#pink-gradient);
         stroke: none;
@@ -346,22 +427,40 @@ section {
 @media screen and (min-width: 660px) {
     .header{
         &__explore {
+            padding-right: 1rem;
+            padding-left: 1rem;
             &__reserve {
-            text-align: start;
-            max-width: 80%;
-            margin: auto;
+                text-align: start;
+                max-width: 80%;
+                margin: auto;
+                padding: 1.5rem 0 0 0; /* goes with __ btn {display : none} */
+
             }
             &__discover {
                 text-align: start;
-            max-width: 80%;
-            margin: auto;
+                max-width: 80%;
+                margin: auto;
+                padding: 0.5rem 0 1.5rem 0; /* goes with __ btn {display : none} */
             }
             &__btn {
-            max-width: 80%;
-            width: 80%;
-            margin: auto;
+                display: none;
+                // max-width: 80%;
+                // width: 80%;
+                // margin: auto;
+            }
+            padding-bottom: 3rem;  /* goes with __ btn {display : none} */
+            &__line {
+                display: block;
+                max-width: 80%;
+                margin: auto;
+                height: 0.3rem;
+                border-radius: 1rem;
+                background: linear-gradient(179deg, $color-secondary, $color-primary);
             }
         }
+    }
+    .menu{
+        width: 60%;
     }
     .howTo{
         &__h2 {
