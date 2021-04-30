@@ -120,7 +120,7 @@ body {
         position: relative;
         &__arrow {
             position: absolute;
-            top: 1.8rem;
+            top: 1.5rem;
             left: 1.8rem;
             font-size: 1.5rem;
             color: $color-fifthary;
@@ -232,14 +232,122 @@ body {
                 }
             }
             &__item {
-                padding: 1rem;
+                padding: 0.8rem 1rem 0.8rem 1rem;
                 margin: 1rem 0 1rem 0;
                 display: flex;
                 box-shadow: $box-shadow;
-                border-radius: 1.5rem;
+                border-radius: 1.2rem;
                 background-color: white;
+                cursor: pointer;
+                overflow: hidden;
+                max-width: 100%;
+                &__text {
+                    flex: 1;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    &__title {
+                        margin: 0;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        font-size: 1.1rem;
+                    }
+                    &__description {
+                        margin: 0.3rem 0 0 0;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        font-weight: 300;
+                        font-size: 0.95rem;
+                    }
+                }
+                &__price {
+                    font-weight: 600;
+                    color: $color-fifthary;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    padding-left: 1rem;
+                }
+                &__check {
+                    background-color: $color-tertiary;
+                    width: 4rem;
+                    min-height: 100%;
+                    margin: -1rem -5rem -1rem 1rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: ease-in-out 500ms 100ms;
+
+                    &__wrapIcon {
+                        background-color: white;
+                        border-radius: 3rem;
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transform: rotate(180deg);
+                        transition: ease-in-out 500ms 100ms;
+                        &__icon {
+                            font-size: 1rem;
+                            color: $color-tertiary;
+                        }
+                    }
+                }
+                &:hover {
+                    .menu__wrap__subMenu__item__check {
+                        margin: -1rem -1rem -1rem 1rem;
+                    
+                    }
+                    .menu__wrap__subMenu__item__check__wrapIcon {
+                        transform: rotate(360deg);
+                    }
+                }
             }
         }
+    }
+    &__btnWrap {
+        display: flex;
+        justify-content: center;
+        &__btn {
+            @include btn;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            margin-top: 2rem;
+            margin-bottom: 4rem;
+        }
+    }
+}
+
+.delay {
+    &--1 {
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 100ms;
+    }
+    &--2 {
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 200ms;
+    }
+    &--3 {
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 300ms;
+    }
+    &--4 {
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 400ms;
+    }
+    &--5 {
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 400ms;
+    }
+    &--6 {
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 600ms;
+    }
+    &--7 {
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 700ms;
+    }
+    &--8 {
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 800ms;
+    }
+    &--9 {
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 900ms;
     }
 }
 
@@ -262,7 +370,7 @@ section {
             padding: 0.5rem;
             margin: 0.5rem 0 0.5rem 0.5rem;
             box-shadow: $box-shadow;
-            border-radius: 1.5rem;
+            border-radius: 1.5rem 1.7rem 1.7rem 1.5rem;
             position: relative;
             z-index: 1;
             &__icon {
@@ -291,7 +399,7 @@ section {
                 counter-increment: n 1;
                 content: counter(n);
                 position: absolute;
-                top: 40%;
+                top: 36%;
                 left: -0.75rem;
                 background-color: $color-primary;
                 color: white;
@@ -460,7 +568,7 @@ section {
         }
     }
     .menu{
-        width: 60%;
+        width: 85%;
     }
     .howTo{
         &__h2 {
@@ -488,6 +596,19 @@ section {
             column-gap: 2rem;
         }
     }
+    .menu__wrap__subMenu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+        &__title {
+            grid-column: 1 / -1;
+            padding-top: 2rem;
+            margin-bottom: 1rem;
+            &::before {
+                width: 100%;
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 1320px) {
@@ -501,5 +622,35 @@ section {
                 width: 30%;
             }
         }
+    }
+    .menu {
+        width: 65%;
+        &__wrap__subMenu {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 1rem;
+            &__title {
+                grid-column: 1 / -1;
+                padding-top: 2rem;
+                margin-bottom: 1rem;
+                &::before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@keyframes menuPop {
+    0%{
+        opacity: 0;
+        transform: translateY(200%);
+    }
+    50%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
     }
 }
