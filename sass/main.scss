@@ -323,34 +323,34 @@ body {
 
 .delay {
     &--1 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 100ms;
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3100ms;
     }
     &--2 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 200ms;
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3200ms;
     }
     &--3 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 300ms;
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3300ms;
     }
     &--4 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 400ms;
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3400ms;
     }
     &--5 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 400ms;
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3500ms;
     }
     &--6 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 600ms;
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3600ms;
     }
     &--7 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 700ms;
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3700ms;
     }
     &--8 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 800ms;
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3800ms;
     }
     &--9 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 900ms;
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3900ms;
     }
     &--10 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 1000ms;
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 4000ms;
     }
 }
 
@@ -692,8 +692,9 @@ section {
         display: flex;
         justify-content: center;
         align-items: center;
+        box-shadow: $box-shadow;
     }
-    &__anim {
+    &__animBg {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -727,14 +728,14 @@ section {
             left: 0;
             animation: loading 3000ms both linear 2000ms infinite;
         }
-        &__text {
+        &__spin {
             border-top: 6px solid white;
             border-right: 6px solid white;
             border-bottom: 6px solid white;
             border-left: 6px solid transparent;
             height: 3rem;
             width: 3rem;
-            animation: text-anim 1000ms both linear infinite;
+            animation: spin-anim 1000ms both linear infinite;
         }
     }
 }
@@ -754,14 +755,15 @@ section {
     }
 }
 
-@keyframes text-anim {
+@keyframes spin-anim {
     0%{
-        transform: scale(0.5);
-        transform: rotate(0deg);
+        transform: rotate(0deg) scale(0.96);
+    }
+    50%{
+        transform: rotate(180deg) scale(1);
     }
     100%{
-        transform: scale(0.8);
-        transform: rotate(360deg);
+        transform: rotate(360deg) scale(0.96);
 
     }
 
