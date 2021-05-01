@@ -632,5 +632,118 @@ section {
     transform: translateY(0%);
   }
 }
+.loader {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: rgba(11, 37, 30, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: loader 3000ms cubic-bezier(0.76, 0.16, 0.96, 0.31) both;
+}
+.loader__wrap {
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+  background: white;
+  border: 3px solid white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader__anim {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.loader__anim--1 {
+  background: linear-gradient(#FF79DA, #9356DC);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  animation: loading 3000ms linear 0ms infinite;
+}
+.loader__anim--2 {
+  background: linear-gradient(#9356DC, #99E2D0);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  animation: loading 3000ms both linear 1000ms infinite;
+}
+.loader__anim--3 {
+  background: linear-gradient(#99E2D0, #FF79DA);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  animation: loading 3000ms both linear 2000ms infinite;
+}
+.loader__anim__text {
+  border-top: 6px solid white;
+  border-right: 6px solid white;
+  border-bottom: 6px solid white;
+  border-left: 6px solid transparent;
+  height: 3rem;
+  width: 3rem;
+  animation: text-anim 1000ms both linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes text-anim {
+  0% {
+    transform: scale(0.5);
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: scale(0.8);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 1;
+  }
+  90% {
+    transform: scale(1);
+  }
+  99% {
+    transform: scale(0.001);
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    transform: scale(0);
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
