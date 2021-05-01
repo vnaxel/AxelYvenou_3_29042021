@@ -106,8 +106,6 @@ $menuLoaderDelay : 700ms;
     }
 }
 
-
-
 body {
     margin: 0;
     padding: 0;
@@ -115,6 +113,86 @@ body {
     a {
         text-decoration: none;
         color: inherit;
+    }
+}
+
+section {
+    padding: 1rem 1rem 3rem 1rem ;
+}
+
+.loader {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: darken(rgb(231, 231, 231, 0.65), 65%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &--index {
+        animation: loader $indexLoaderDelay cubic-bezier(.76,.16,.96,.31) both;
+    }
+    &--menu {
+        animation: loader $menuLoaderDelay cubic-bezier(.76,.16,.96,.31) both;
+    }
+    &__wrap {
+        position: relative;
+        width: 6rem;
+        height: 6rem;
+        background: white;
+        border: 3px solid white;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: $box-shadow;
+    }
+    &__animBg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        font-size: 1.5rem;
+        font-weight: 600;
+        &--1 {
+            background: linear-gradient($color-secondary, $color-primary);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            animation: loading 3000ms linear 0ms infinite;
+        }
+        &--2 {
+            background: linear-gradient($color-primary, $color-tertiary);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            animation: loading 3000ms both linear 1000ms infinite;
+        }
+        &--3 {
+            background: linear-gradient($color-tertiary, $color-secondary);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            animation: loading 3000ms both linear 2000ms infinite;
+        }
+        &__spin {
+            border-top: 6px solid white;
+            border-right: 6px solid white;
+            border-bottom: 6px solid white;
+            border-left: 6px solid transparent;
+            height: 3rem;
+            width: 3rem;
+            animation: spin-anim 1000ms both linear infinite;
+        }
     }
 }
 
@@ -247,7 +325,7 @@ body {
                 animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94);  //
                 @for $i from 1 through 10{                                    // Pour faire apparaitres les item du
                     &:nth-child(#{$i}){                                       // menu par sections Entrees / plats /desserts            
-                      animation-delay: ($i * 100ms)+$menuLoaderDelay;         //      
+                      animation-delay: ($i * 100ms)+($menuLoaderDelay)-250ms;         //      
                     }                                                         //
                 }                                                             //
                 &__text {
@@ -327,7 +405,7 @@ body {
     }
 }
 
-/* --------------------  Pour faire apparaitre les item du menu 1 à 1 ------------------------*/
+/* -------------------  Pour faire apparaitre les item du menu 1 par 1 -----------------------*/
 .delay {
 //     &--1 {
 //         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+100ms;
@@ -362,9 +440,7 @@ body {
 }
 /*--------------------------------------------------------------------------------------------*/
 
-section {
-    padding: 1rem 1rem 3rem 1rem ;
-}
+
 
 .howTo {
     &__h2 {
@@ -678,80 +754,7 @@ section {
     }
 }
 
-.loader {
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    background-color:darken( rgb(153, 226, 208, 0.6), 65%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &--index {
-        animation: loader $indexLoaderDelay cubic-bezier(.76,.16,.96,.31) both;
-    }
-    &--menu {
-        animation: loader $menuLoaderDelay cubic-bezier(.76,.16,.96,.31) both;
-    }
-    &__wrap {
-        position: relative;
-        width: 6rem;
-        height: 6rem;
-        background: white;
-        border: 3px solid white;
-        border-radius: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: $box-shadow;
-    }
-    &__animBg {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 100%;
-        font-size: 1.5rem;
-        font-weight: 600;
-        &--1 {
-            background: linear-gradient($color-secondary, $color-primary);
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            animation: loading 3000ms linear 0ms infinite;
-        }
-        &--2 {
-            background: linear-gradient($color-primary, $color-tertiary);
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            animation: loading 3000ms both linear 1000ms infinite;
-        }
-        &--3 {
-            background: linear-gradient($color-tertiary, $color-secondary);
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            animation: loading 3000ms both linear 2000ms infinite;
-        }
-        &__spin {
-            border-top: 6px solid white;
-            border-right: 6px solid white;
-            border-bottom: 6px solid white;
-            border-left: 6px solid transparent;
-            height: 3rem;
-            width: 3rem;
-            animation: spin-anim 1000ms both linear infinite;
-        }
-    }
-}
+
 
 @keyframes loading {
     0% {
@@ -786,16 +789,25 @@ section {
     0%{
         opacity: 1;
         transform: scale(1);
+        border-radius: 0%;
 
     }
     80%{
         opacity: 1;
+        border-radius: 0%;
+
     }
     90%{
         transform: scale(1);
+        border-radius: 0%;
+
+    }
+    98%{
+        border-radius: 3rem;
     }
     99%{
         transform: scale(0.001);
+        border-radius: 3rem;
     }
     100%{
         opacity: 0;
