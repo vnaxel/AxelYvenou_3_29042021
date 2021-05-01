@@ -165,19 +165,16 @@ body a {
 .menu__wrap__subMenu__item__text {
   flex: 1;
   white-space: nowrap;
-  text-overflow: ellipsis;
   overflow: hidden;
 }
 .menu__wrap__subMenu__item__text__title {
   margin: 0;
-  white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   font-size: 1.1rem;
 }
 .menu__wrap__subMenu__item__text__description {
   margin: 0.3rem 0 0 0;
-  white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   font-weight: 300;
@@ -287,6 +284,9 @@ body a {
 }
 .delay--9 {
   animation: menuPop 400ms both cubic-bezier(0.18, 0.65, 0.49, 0.94) 900ms;
+}
+.delay--10 {
+  animation: menuPop 400ms both cubic-bezier(0.18, 0.65, 0.49, 0.94) 1000ms;
 }
 
 section {
@@ -513,6 +513,11 @@ section {
   }
 }
 
+@media screen and (max-width: 320px) {
+  .howTo__stepsWrap__step__text {
+    font-size: 0.8rem;
+  }
+}
 @media screen and (min-width: 660px) {
   .header__explore {
     padding-right: 1rem;
@@ -585,7 +590,7 @@ section {
     margin-bottom: 1rem;
   }
   .menu__wrap__subMenu__title::before {
-    width: 100%;
+    width: 97%;
   }
 }
 @media screen and (min-width: 1320px) {
@@ -598,7 +603,7 @@ section {
   }
 
   .menu {
-    width: 65%;
+    width: 70%;
   }
   .menu__wrap__subMenu {
     display: grid;

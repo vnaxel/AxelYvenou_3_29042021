@@ -6,7 +6,6 @@ $color-secondary : #FF79DA;
 $color-tertiary : #99E2D0;
 $color-fourthary : rgb(231, 231, 231);
 $color-fifthary : darken($color-fourthary, 65%);
-
 $box-shadow : 3px 3px 10px rgba(0,0,0,0.22);
 
 @mixin btn {
@@ -244,18 +243,15 @@ body {
                 &__text {
                     flex: 1;
                     white-space: nowrap;
-                    text-overflow: ellipsis;
                     overflow: hidden;
                     &__title {
                         margin: 0;
-                        white-space: nowrap;
                         text-overflow: ellipsis;
                         overflow: hidden;
                         font-size: 1.1rem;
                     }
                     &__description {
                         margin: 0.3rem 0 0 0;
-                        white-space: nowrap;
                         text-overflow: ellipsis;
                         overflow: hidden;
                         font-weight: 300;
@@ -348,6 +344,9 @@ body {
     }
     &--9 {
         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 900ms;
+    }
+    &--10 {
+        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 1000ms;
     }
 }
 
@@ -531,7 +530,19 @@ section {
 .footer {
     @include footer;
 }
-    
+
+@media screen and (max-width: 320px) {
+    .howTo {
+        &__stepsWrap {
+            &__step {
+                &__text {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 660px) {
     .header{
         &__explore {
@@ -605,7 +616,7 @@ section {
             padding-top: 2rem;
             margin-bottom: 1rem;
             &::before {
-                width: 100%;
+                width: 97%;
             }
         }
     }
@@ -624,7 +635,7 @@ section {
         }
     }
     .menu {
-        width: 65%;
+        width: 70%;
         &__wrap__subMenu {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
