@@ -1,0 +1,98 @@
+
+
+
+@mixin btn {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    padding: 1rem;
+    border: 0px;
+    cursor: pointer;
+    border-radius: 2rem;
+    box-shadow: $box-shadow;
+    background: linear-gradient(179deg, $color-secondary, $color-primary);
+    position: relative;
+    z-index: 1;
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 2rem;
+        box-shadow: 3px 3px 10px rgba(0,0,0,0.325) ;
+        background: linear-gradient(179deg, lighten($color-secondary, 3%),lighten($color-primary, 3%));
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 200ms;
+    }
+}
+
+@mixin footer {
+    padding: 1rem 1rem 2rem 1rem ;
+    background-color: darken($color-fifthary, 5%);
+    color: white;
+    &__title {
+            font-family: 'Shrikhand', cursive;
+            font-weight: 400;
+            padding: 1rem 0 2rem 0;
+            margin: 0;
+    }
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        &__partners {
+            display: flex;
+            flex-direction: column;
+            &__li {
+                &__icon {
+                    margin: 0 1rem 0 0.15rem;
+                    &--resize {
+                        font-size: 0.8rem;
+                        margin: 0 0.85rem 0 0.1rem;
+                    }
+                }
+            }
+        }
+        &__list {
+            display: flex;
+            flex-direction: column;
+            font-weight: 300;
+        }
+    }
+    & ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+    & li {
+        margin: 0.4rem 0 0.4rem 0;
+    }
+
+    @media screen and (min-width: 660px) {
+        .footer {
+            &__title {
+                max-width: 80%;
+                margin: auto;
+            }
+            &__wrap {
+                max-width: 80%;
+                margin: auto;
+                flex-direction: row;
+                justify-content: center;
+                &__partners {
+                    width: 50%;
+                }
+                &__list {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
