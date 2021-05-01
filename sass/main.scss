@@ -7,8 +7,8 @@ $color-tertiary : #99E2D0;
 $color-fourthary : rgb(231, 231, 231);
 $color-fifthary : darken($color-fourthary, 65%);
 $box-shadow : 3px 3px 10px rgba(0,0,0,0.22);
-
-
+$indexLoaderDelay : 1500ms;
+$menuLoaderDelay : 700ms;
 
 @mixin btn {
     font-size: 1rem;
@@ -244,6 +244,12 @@ body {
                 cursor: pointer;
                 overflow: hidden;
                 max-width: 100%;
+                animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94);  //
+                @for $i from 1 through 10{                                    // Pour faire apparaitres les item du
+                    &:nth-child(#{$i}){                                       // menu par sections Entrees / plats /desserts            
+                      animation-delay: ($i * 100ms)+$menuLoaderDelay;         //      
+                    }                                                         //
+                }                                                             //
                 &__text {
                     flex: 1;
                     white-space: nowrap;
@@ -321,38 +327,40 @@ body {
     }
 }
 
+/* --------------------  Pour faire apparaitre les item du menu 1 à 1 ------------------------*/
 .delay {
-    &--1 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3100ms;
-    }
-    &--2 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3200ms;
-    }
-    &--3 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3300ms;
-    }
-    &--4 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3400ms;
-    }
-    &--5 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3500ms;
-    }
-    &--6 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3600ms;
-    }
-    &--7 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3700ms;
-    }
-    &--8 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3800ms;
-    }
-    &--9 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 3900ms;
-    }
-    &--10 {
-        animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) 4000ms;
-    }
+//     &--1 {
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+100ms;
+//     }
+//     &--2 {
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+200ms;
+//     }
+//     &--3 {
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+300ms;
+//     }
+//     &--4 {
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+400ms;
+//     }
+//     &--5 {
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+500ms;
+//     }
+//     &--6 {
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+600ms;
+//     }
+//     &--7 {
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+700ms;
+//     }
+//     &--8 {
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+800ms;
+//     }
+//     &--9 {
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+900ms;
+//     }
+//     &--10 {
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+1000ms;
+//     }
 }
+/*--------------------------------------------------------------------------------------------*/
 
 section {
     padding: 1rem 1rem 3rem 1rem ;
@@ -535,7 +543,7 @@ section {
     @include footer;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 319px) {
     .howTo {
         &__stepsWrap {
             &__step {
@@ -681,7 +689,12 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: loader 3000ms cubic-bezier(.76,.16,.96,.31) both;
+    &--index {
+        animation: loader $indexLoaderDelay cubic-bezier(.76,.16,.96,.31) both;
+    }
+    &--menu {
+        animation: loader $menuLoaderDelay cubic-bezier(.76,.16,.96,.31) both;
+    }
     &__wrap {
         position: relative;
         width: 6rem;
