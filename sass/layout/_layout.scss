@@ -166,6 +166,7 @@ section {
 
 .restaurants {
     background-color: lighten($color-fourthary, 5%);
+    overflow: hidden;
     &__h2 {
         padding: 1rem 0 1rem 0;
         margin: 0;
@@ -182,6 +183,12 @@ section {
     margin: 1rem 0rem 1rem 0rem;
     border-radius: 0.8rem;
     box-shadow: $box-shadow;
+    // animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94);    //
+    // @for $i from 1 through 10{                                      // 
+    //     &:nth-child(#{$i}){                                         // makes appear restaurants 1 by 1          
+    //       animation-delay: ($i * 100ms)+($indexLoaderDelay)-250ms;  //      
+    //     }                                                           //
+    // }                                                               //
     transform: scale(1);
     transition: 200ms ease;
     &:hover {
@@ -268,7 +275,7 @@ section {
                 animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94);  //
                 @for $i from 1 through 10{                                    // 
                     &:nth-child(#{$i}){                                       // makes appear menu item by section (entrees, plats, desserts)           
-                      animation-delay: ($i * 100ms)+($menuLoaderDelay)-250ms; //      
+                      animation-delay: ($i * 100ms)+($menuLoaderDuration)-250ms; //      
                     }                                                         //
                 }                                                             //
                 &__text {
@@ -346,38 +353,38 @@ section {
     }
 }
 
-.delay {  // menu items 1 by 1 apparition
+// .delay {  // menu items 1 by 1 apparition
 //     &--1 {
-//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+100ms;
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDuration+100ms;
 //     }
 //     &--2 {
-//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+200ms;
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDuration+200ms;
 //     }
 //     &--3 {
-//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+300ms;
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDuration+300ms;
 //     }
 //     &--4 {
-//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+400ms;
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDuration+400ms;
 //     }
 //     &--5 {
-//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+500ms;
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDuration+500ms;
 //     }
 //     &--6 {
-//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+600ms;
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDuration+600ms;
 //     }
 //     &--7 {
-//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+700ms;
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDuration+700ms;
 //     }
 //     &--8 {
-//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+800ms;
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDuration+800ms;
 //     }
 //     &--9 {
-//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+900ms;
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDuration+900ms;
 //     }
 //     &--10 {
-//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDelay+1000ms;
+//         animation: menuPop 400ms both cubic-bezier(.18,.65,.49,.94) $menuLoaderDuration+1000ms;
 //     }
-}
+//}
 
 
 
