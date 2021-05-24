@@ -29,16 +29,29 @@
         display: flex;
         text-align: center;
         justify-content: center;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 500;
         color: $color-fifthary;
         background-color: $color-fourthary;
-        padding: 1rem 0 1rem 0;
+        padding: 1.2rem 0 1.2rem 0;
         box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.3);
         &__text {
-            margin-right: 1.5rem;
+            width: 13rem;
+            color: $color-fifthary;
+            font-size: 1.4rem;
+            font-weight: 600;
+            background-color: $color-fourthary;
+            outline: none;
+            border: none;
+            &::placeholder{
+                color: $color-fifthary;
+                font-size: 1.4rem;
+                font-weight: 600;
+            }
+
             &__icon {
                 margin-right: 1rem;
+                margin-left: 2rem;
             }
         }
     }

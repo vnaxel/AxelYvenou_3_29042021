@@ -13,10 +13,10 @@
     justify-content: center;
     align-items: center;
     &--index {
-        animation: loader $indexLoaderDuration cubic-bezier(.76,.16,.96,.31) both;
+        animation: loader $indexLoaderDuration linear both;
     }
     &--menu {
-        animation: loader $menuLoaderDuration cubic-bezier(.76,.16,.96,.31) both;
+        animation: loader $menuLoaderDuration linear both;
     }
     &__wrap {
         position: relative;

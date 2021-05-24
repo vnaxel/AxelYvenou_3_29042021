@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ohmyfood! - Acceuil</title>
+    <title>Ohmyfood! - Accueil</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/49d298eb13.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
-
+    <!-- loader -->
     <div class="loader loader--index">
         <div class="loader__wrap">
         <div class="loader__animBg loader__animBg--1"></div>
@@ -18,15 +18,15 @@
         <div class="loader__animBg loader__animBg__spin"></div>
         </div>
     </div>
-    
+    <!-- Header -->
     <header class="header">
         <div class="header__boxLogo">
             <h1 class="header__boxLogo__logo">ohmyfood</h1>
         </div>
         <div class="header__pos">
-            <span class="header__pos__text">
-                <i class="fas fa-map-marker-alt header__pos__text__icon"></i>
-                Paris, Belleville</span>
+            <i class="fas fa-map-marker-alt header__pos__text__icon"></i>
+            <input class="header__pos__text" placeholder="Paris, Belleville">
+            </input>
         </div>
         <div class="header__explore">
             <div class="header__explore__line"></div>
@@ -36,8 +36,9 @@
             <div class="header__explore__line"></div>
         </div>
     </header>
-
+    <!-- main -->
     <main class="main">
+        <!-- steps -->
         <section class="howTo">
             <h2 class="howTo__h2">Fonctionnement</h2>
             <div class="howTo__stepsWrap">
@@ -55,6 +56,7 @@
                 </div>
             </div>
         </section>
+        <!-- restaurants -->
         <section class="restaurants">
             <h2 class="restaurants__h2">Restaurants</h2>
             <div class="restaurants__itemWrap">
@@ -135,6 +137,7 @@
             </div>
         </section>
     </main>
+    <!-- footer -->
     <footer class="footer">
         <h3 class="footer__title">ohmyfood</h3>
         <div class="footer__wrap">
